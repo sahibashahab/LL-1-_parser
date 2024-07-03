@@ -1,0 +1,90 @@
+
+
+
+
+S -> A | B C,
+A -> a | b,
+B -> p | #,
+C -> c
+A,S,B,C
+a,c,b,p
+p c
+
+A -> S B | B,
+S -> a | B c ,
+B -> b | d
+A,S,B
+a,c,b,d
+b c b 
+
+
+S -> A B | C,
+A -> a | b | #,
+B-> p | #,
+C -> c
+
+A,S,B,C
+a,c,b,p
+a c b
+
+
+S -> A B C | C
+A -> a | b B | #,
+B -> p | #,
+C -> c
+
+A,S,B,C
+a,c,b,p
+b p p c
+
+
+A -> B C c | g D B,
+B -> b C D E | #,
+C -> D a B | c a,
+D -> # | d D,
+E -> E a f | c
+
+A,B,C,D,E
+
+a,b,c,d,f,g
+
+b a c a c
+
+
+E -> T E',
+E' -> + T E' | #,
+T -> F T',
+T' -> * F T' | #,
+F -> ( E ) | id
+
+
+E,E',F,T,T'
+
+id,+,*,(,)
+
+id * * id"
+# example string 1
+
+( id * id )"
+# example string 2
+
+( id ) * id + id"
+
+
+
+
+ 
+rules=["A -> S B | B",
+       "S -> a | B c | #",
+        "B -> b | d"]
+ nonterm_userdef=['A','S','B']
+term_userdef=['a','c','b','d']
+sample_input_string="b c b"
+
+rules=["S -> A | B C",
+       "A -> a | b",
+      "B -> p | #",
+      "C -> c"]
+ nonterm_userdef=['A','S','B','C']
+ term_userdef=['a','c','b','p']
+ sample_input_string="p c"
